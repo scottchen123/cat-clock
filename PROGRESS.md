@@ -1,7 +1,14 @@
 # PROGRESS — Cat Clock (cross-platform)
 
 ## Now
-M6 Publish: README (EN + 中文, screenshot), LICENSE (MIT code; art + CC0 purr credits), release workflow, fresh public repo on the user's GitHub account (ASK which account first; user logs in with gh auth login --web), push, tag v0.1.0, check CI on Windows + macOS.
+Published: https://github.com/scottchen123/cat-clock (public). v0.1.1 release is a DRAFT with Windows .msi/.exe (16 MB) and macOS universal .dmg (35 MB); CI green on Windows + macOS. Waiting for the user to publish the draft. (v0.1.0 tag exists but its release run failed: missing npm "tauri" script; tag left in place.)
+
+## Next
+- Install the released Windows .exe here and check it like a user (release build, no console).
+- Someone tries the .dmg on a real Mac (not testable here).
+- User tries the tray menu.
+- Then: user decides whether to switch from the WPF app (copy settings + private meows to %APPDATA%\com.catclock.app).
+- Delete 11-05/tmp/cargo-target (2.1 GB) + cargo-home (0.35 GB) when no more builds are needed.
 
 ## Done
 - SPEC.md, CLAUDE.md, README stub; `src/core.js` ported from Core.cs with IANA zones + old-settings migration; 6 test groups pass; publishable assets copied (sprites + CC0 purr, no meows).
@@ -25,8 +32,6 @@ M6 Publish: README (EN + 中文, screenshot), LICENSE (MIT code; art + CC0 purr 
 - Build: `CARGO_HOME=11-05/tmp/cargo-home CARGO_TARGET_DIR=11-05/tmp/cargo-target npx tauri build --debug --no-bundle` -> `11-05/tmp/cargo-target/debug/cat-clock.exe`.
 - Run with `CATCLOCK_CONFIG_DIR=11-05/tmp/cc-test` (scratch settings). Stop the old WPF CatClock while screenshotting and START IT AGAIN afterwards (it is the user's daily app).
 
-## Next
-M3 pair play, M4 sound + alarms, M5 panel + tray, M6 publish.
 
 ## Decisions
 - Combined spec review for M1+M2 (M1 is small).
@@ -35,6 +40,7 @@ M3 pair play, M4 sound + alarms, M5 panel + tray, M6 publish.
 - Public sounds: synthesized meow + CC0 purr; private meows only from the user's app-data folder.
 
 ## Known issues / backlog
+- Installers are 16/35 MB because the sprite PNGs are ~600 KB each: resize/compress them (WebP or smaller PNG) for ~5 MB installers.
 - macOS menu-bar icon should be a monochrome template image (uses the colour app icon now).
 - Perf: labels re-measured + blurred text drawn every frame; cache labels in an offscreen canvas, clear only cat boxes, ~30 fps when idle.
 - First click of a double-click also hops (same as the WPF app).
