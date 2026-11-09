@@ -3,10 +3,11 @@
 ## Now
 Published: https://github.com/scottchen123/cat-clock (public). v0.1.1 release is a DRAFT with Windows .msi/.exe (16 MB) and macOS universal .dmg (35 MB); CI green on Windows + macOS. Waiting for the user to publish the draft. (v0.1.0 tag exists but its release run failed: missing npm "tauri" script; tag left in place.)
 
+## Done (release check)
+- Released v0.1.1 setup.exe installed silently here (per-user, no UAC): no console window, cats drawn, click-through, panel opens, tray icon + menu shown, tray Quit saves and exits; uninstalled again. Installer is unsigned (SmartScreen note in README).
+
 ## Next
-- Install the released Windows .exe here and check it like a user (release build, no console).
 - Someone tries the .dmg on a real Mac (not testable here).
-- User tries the tray menu.
 - Then: user decides whether to switch from the WPF app (copy settings + private meows to %APPDATA%\com.catclock.app).
 - Delete 11-05/tmp/cargo-target (2.1 GB) + cargo-home (0.35 GB) when no more builds are needed.
 

@@ -23,10 +23,10 @@ Double-click a cat (or click the tray / menu-bar icon) for settings: reminders, 
 
 Download the latest installer from [Releases](../../releases).
 
-- **Windows**: run the `.msi` or `-setup.exe`.
+- **Windows**: run the `-setup.exe` (or the `.msi`). The installer is not code-signed, so Windows may show "Windows protected your PC": click *More info → Run anyway*.
 - **macOS**: open the `.dmg` and drag **Cat Clock** to Applications. The app is not notarized by Apple, so the first time you open it, go to *System Settings → Privacy & Security → Open Anyway*. If macOS says the app is "damaged", run `xattr -cr "/Applications/Cat Clock.app"` in Terminal once.
 
-从 [Releases](../../releases) 下载最新安装包。Windows 运行 `.msi` 或 `-setup.exe`；macOS 打开 `.dmg`，把 Cat Clock 拖进"应用程序"。第一次打开时，到"系统设置 → 隐私与安全性"里点"仍要打开"。
+从 [Releases](../../releases) 下载最新安装包。Windows 运行 `-setup.exe`（如果出现"Windows 已保护你的电脑"，点"更多信息 → 仍要运行"）；macOS 打开 `.dmg`，把 Cat Clock 拖进"应用程序"。第一次打开时，到"系统设置 → 隐私与安全性"里点"仍要打开"。
 
 ### Your own meow sounds · 用自己的猫叫声
 
