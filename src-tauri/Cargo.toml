@@ -1,6 +1,6 @@
 [package]
 name = "cat-clock"
-version = "0.1.0"
+version = "0.1.1"
 description = "Two desktop cats that show the time in two cities"
 edition = "2021"
 license = "MIT"
