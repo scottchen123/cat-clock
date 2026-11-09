@@ -1,0 +1,8 @@
+node_modules/
+src-tauri/target/
+src-tauri/gen/
+dist/
+*.log
+.DS_Store
+# private sounds must never be committed (the app reads them from the user's app-data folder instead)
+**/meow-*.wav

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Cat Clock · 设置</title>
+  <style>
+    :root { --paper: #FFF8EC; --line: #E6D3B8; --ink: #5B4232; --soft: #8C7462; --accent: #C9733F; --accent-ink: #fff; --field: #FFFDF8; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: var(--paper); color: var(--ink); font: 14px/1.4 "Segoe UI", "Microsoft YaHei UI", "PingFang SC", -apple-system, system-ui, sans-serif; user-select: none; }
+    main { padding: 14px 16px 16px; }
+    h1 { font-size: 17px; margin: 0 0 2px; }
+    #status { color: var(--soft); font-size: 13px; margin-bottom: 4px; min-height: 18px; }
+    #next { font-size: 13px; margin-bottom: 10px; color: var(--ink); }
+    h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: var(--soft); margin: 14px 0 6px; border-bottom: 1px dashed var(--line); padding-bottom: 3px; }
+    .row { display: flex; align-items: center; gap: 6px; margin: 5px 0; }
+    .row label.k { width: 92px; color: var(--soft); font-size: 13px; flex: none; }
+    input, select, button { font: inherit; color: var(--ink); }
+    input[type=text], input[type=time], select { background: var(--field); border: 1px solid var(--line); border-radius: 8px; padding: 4px 7px; min-width: 0; }
+    input[type=time] { width: 92px; }
+    input.city { width: 108px; }
+    select.zone { flex: 1; }
+    button { background: var(--field); border: 1px solid var(--line); border-radius: 9px; padding: 4px 11px; cursor: pointer; }
+    button:hover { border-color: var(--accent); }
+    button.main { background: var(--accent); border-color: #B5612F; color: var(--accent-ink); font-weight: 600; }
+    .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 9px; overflow: hidden; }
+    .seg button { border: 0; border-radius: 0; padding: 4px 10px; white-space: nowrap; }
+    .seg button + button { border-left: 1px solid var(--line); }
+    .seg button[aria-pressed=true] { background: var(--accent); color: var(--accent-ink); }
+    #alarms { list-style: none; margin: 0; padding: 0; }
+    #alarms li { display: flex; align-items: center; gap: 8px; padding: 5px 0; border-bottom: 1px solid #F1E4D2; }
+    #alarms li .time { font-weight: 700; font-size: 16px; width: 52px; }
+    #alarms li .what { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    #alarms li .what small { color: var(--soft); }
+    #alarms li.off { opacity: .5; }
+    #alarms .empty { color: var(--soft); font-size: 13px; border: 0; }
+    .del { border: 0; background: none; color: var(--soft); font-size: 16px; padding: 0 4px; }
+    .add { flex-wrap: wrap; }
+    .add input.label { flex: 1; min-width: 120px; }
+    #saved { color: #5E8A4A; font-size: 12px; opacity: 0; transition: opacity .3s; margin-left: auto; }
+    #saved.on { opacity: 1; }
+    #msg { color: #B5452F; font-size: 12px; min-height: 16px; }
+    footer { display: flex; gap: 8px; margin-top: 14px; align-items: center; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>🐈 Cat Clock</h1>
+  <div id="status"></div>
+  <div id="next"></div>
+
+  <h2>Reminders · 提醒</h2>
+  <ul id="alarms"></ul>
+  <div class="row add">
+    <input type="time" id="aTime" value="21:00" aria-label="Time 时间">
+    <select id="aSide" aria-label="Whose clock 哪个城市的时间"></select>
+    <input type="text" class="label" id="aLabel" placeholder="Video call 视频通话" maxlength="60" aria-label="Label 名称">
+    <button class="main" id="aAdd">+ Add 添加</button>
+  </div>
+  <div id="msg"></div>
+
+  <h2>Cities · 城市</h2>
+  <div class="row"><label class="k" for="cityA">Cat 1 (fawn)</label><input type="text" class="city" id="cityA" maxlength="30"><select class="zone" id="zoneA"></select></div>
+  <div class="row"><label class="k" for="cityB">Cat 2 (lilac)</label><input type="text" class="city" id="cityB" maxlength="30"><select class="zone" id="zoneB"></select></div>
+
+  <h2>Awake hours · 醒着的时间</h2>
+  <div class="row"><label class="k" id="awA">—</label><input type="time" id="awA1"> – <input type="time" id="awA2"></div>
+  <div class="row"><label class="k" id="awB">—</label><input type="time" id="awB1"> – <input type="time" id="awB2"></div>
+  <div style="color:var(--soft);font-size:12px">Outside these hours the cat sleeps. 不在这个时间段，猫会睡觉。</div>
+
+  <h2>Cats · 猫</h2>
+  <div class="row"><label class="k">Cat 猫</label><span class="seg" id="cats"><button data-v="both">Both 两只</button><button data-v="fawn">Fawn 浅黄褐</button><button data-v="lilac">Lilac 丁香</button></span></div>
+  <div class="row"><label class="k">Size 大小</label><span class="seg" id="size"><button data-v="0.6">Small 小</button><button data-v="0.75">Medium 中</button><button data-v="0.95">Large 大</button></span></div>
+  <div class="row"><label class="k">Sound 声音</label><span class="seg" id="sound"><button data-v="true">On 开</button><button data-v="false">Off 关</button></span></div>
+  <div class="row"><label class="k">Walk 走动</label><span class="seg" id="walk"><button data-v="true">On 开</button><button data-v="false">Off 关</button></span></div>
+
+  <footer>
+    <button id="test">Test alarm 试一下</button>
+    <button id="quit">Quit 退出</button>
+    <span id="saved">Saved ✓ 已保存</span>
+  </footer>
+</main>
+<script type="module" src="panel.js"></script>
+</body>
+</html>
