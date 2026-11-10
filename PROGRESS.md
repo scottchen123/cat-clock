@@ -1,7 +1,7 @@
 # PROGRESS — Cat Clock (cross-platform)
 
 ## Now
-Published: https://github.com/scottchen123/cat-clock (public). v0.1.1 release is PUBLIC (published 2026-11-09) with Windows .msi/.exe (16 MB) and macOS universal .dmg (35 MB); CI green on Windows + macOS. (v0.1.0 tag exists but its release run failed: missing npm "tauri" script; tag left in place.)
+Published: https://github.com/skot-chen/cat-clock (public). v0.1.1 release is PUBLIC (published 2026-11-09) with Windows .msi/.exe (16 MB) and macOS universal .dmg (35 MB); CI green on Windows + macOS. (v0.1.0 tag exists but its release run failed: missing npm "tauri" script; tag left in place.)
 
 ## Done (release check)
 - Released v0.1.1 setup.exe installed silently here (per-user, no UAC): no console window, cats drawn, click-through, panel opens, tray icon + menu shown, tray Quit saves and exits; uninstalled again. Installer is unsigned (SmartScreen note in README).

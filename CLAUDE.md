@@ -2,7 +2,7 @@
 
 - What: two desktop cats showing the time in two cities (fawn = side A, default Shanghai; lilac = side B, default Rijswijk). Tauri 2 rewrite of the Windows-only WPF app in `../cat-clock` (that one stays the user's daily app until this one is accepted). Spec: SPEC.md. State: PROGRESS.md.
 - Users: a Chinese speaker (English ~B1) + an English speaker. UI text = simple English + short Chinese. Explain to the user in simple Chinese.
-- Published: https://github.com/scottchen123/cat-clock (public). Local branch `main` = the public history (authored as scottchen123, set in this repo's git config); `dev-history` = the private build history (authored under the user's other account) — never push it, never name that account here (this file is public).
+- Published: https://github.com/skot-chen/cat-clock (public). Local branch `main` = the public history (authored as skot-chen, set in this repo's git config); `dev-history` = the private build history (authored under the user's other account) — never push it, never name that account here (this file is public).
 - The machine's default gh account is a different one (other projects use it) — do not switch it. Push here without switching: `GH_TOKEN=$(gh auth token --user scottchen123) git -c credential.helper= -c 'credential.helper=!gh auth git-credential' push origin main`. Never ask for or handle tokens; the user logs in with `gh auth login --web` themselves.
 - Release: bump version in package.json + src-tauri/tauri.conf.json + Cargo.toml, tag `vX.Y.Z`, push the tag -> .github/workflows/release.yml builds Windows + macOS into a DRAFT release; the user publishes the draft.
 
