@@ -58,4 +58,4 @@ How it works: one transparent, always-on-top window covers the screen's work are
 
 ## License
 
-Code: [MIT](LICENSE). The cat pictures in `src/assets/` are included for use with this app.
+Code: [PolyForm Noncommercial 1.0.0](LICENSE). Free for personal and noncommercial use. Commercial use needs written permission from skot-chen. The cat pictures in `src/assets/` are © skot-chen, included for use with this app only.

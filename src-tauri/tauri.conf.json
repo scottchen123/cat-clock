@@ -34,7 +34,7 @@
     "targets": "all",
     "category": "Utility",
     "shortDescription": "Two desktop cats that show the time in two cities",
-    "copyright": "MIT (code); cat art by the project author",
+    "copyright": "(c) 2026 skot-chen. Code: PolyForm Noncommercial 1.0.0; cat art all rights reserved",
     "macOS": { "signingIdentity": "-" },
     "icon": ["icons/32x32.png", "icons/128x128.png", "icons/128x128@2x.png", "icons/icon.icns", "icons/icon.ico"]
   }

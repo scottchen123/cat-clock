@@ -44,7 +44,7 @@ Success after 4 weeks: both users keep it running all day on Windows; someone on
 
 **F7 Publish**
 19. GitHub Actions builds Windows (.msi/.exe) and macOS (.dmg, universal) installers on every tag and attaches them to a Release; CI runs `npm run check` on both OSes.
-20. README (English + 中文): what it is, screenshot, install, build from source, credits/licenses. Code MIT; cat art © the author (Gemini-generated, included with permission); purr CC0.
+20. README (English + 中文): what it is, screenshot, install, build from source, credits/licenses. Code PolyForm Noncommercial 1.0.0 (was MIT until 2026-11-13); cat art © the author (Gemini-generated, included with permission); purr CC0.
 
 ## Non-goals for v1
 Multi-monitor (primary screen only), auto-start at login, Linux packaging (may work, untested), code signing / notarization (macOS users right-click → Open the first time), auto-update, more than two cats.
